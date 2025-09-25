@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: url("assets/background.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5dc;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 100px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  background: #ff6b35;
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  color: #ff6b35;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.scroll-hint {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  opacity: 0;
+}
+
+.scroll-text {
+  color: #ff6b35;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #ff9966);
+  position: relative;
+}
+
+.scroll-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #ff9966;
+  border-bottom: 2px solid #ff9966;
+  transform: rotate(45deg);
+}
+
+.music-control {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 100;
+}
+
+.music-button {
+  border-radius: 25px;
+  padding: 12px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-container {
+  position: relative;
+  margin: 200px 0;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline-progress {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #ff9966, #ff5e62);
+  border-radius: 2px;
+}
+
+.era {
+  position: relative;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+}
+
+.era:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.era-content {
+  flex: 1;
+  background: rgba(26, 26, 46, 0.85);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 153, 102, 0.2);
+  border-radius: 25px;
+  padding: 50px;
+  margin: 0 80px;
+  position: relative;
+  cursor: pointer;
+  max-width: 550px;
+  overflow: hidden;
+}
+
+.era-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 153, 102, 0.1) 0%,
+    rgba(255, 94, 98, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.era-content:hover::before {
+  opacity: 1;
+}
+
+.era-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  border: 3px solid rgba(255, 153, 102, 0.4);
+  box-shadow: 0 0 40px rgba(255, 153, 102, 0.3);
+}
+
+.era-icon::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #ff9966, #ff5e62) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+}
+
+.era-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #ff9966, #ff5e62);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+.era-period {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 25px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.era-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #eee;
+  margin-bottom: 30px;
+}
+
+.era-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.feature-tag {
+  background: rgba(255, 153, 102, 0.15);
+  border: 1px solid rgba(255, 153, 102, 0.4);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  color: #ff9966;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.feature-tag:hover::before {
+  left: 100%;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-content {
+  background: rgba(15, 15, 30, 0.95);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 50px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.8);
+}
+
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #ff5e62;
+  background: rgba(255, 94, 98, 0.1);
+  transform: rotate(90deg);
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 3rem;
+  }
+
+  .timeline-line {
+    left: 30px;
+  }
+
+  .era {
+    flex-direction: column !important;
+    align-items: flex-start;
+    margin-left: 70px;
+  }
+
+  .era-content {
+    margin: 0;
+    max-width: none;
+    padding: 30px;
+  }
+
+  .era-icon {
+    position: absolute;
+    left: -100px;
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evolution of Mankind</title>
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+      <source src="assets/wilderness_chronicles-396244.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+
+      <div class="header">
+        <h1>Evolution of Mankind</h1>
+        <p class="subtitle">
+          A Journey Through 7 Million Years of Human Evolution
+        </p>
+        <div class="scroll-hint">
+          <span class="scroll-text">Scroll to Explore</span>
+          <div class="scroll-arrow"></div>
+        </div>
+
+        <div class="music-control">
+          <button id="musicToggle" class="music-button">
+            <span id="musicIcon">
+              <img src="assets/audioicon.png" alt="Audio Icon" />
+            </span>
+            <span id="musicText">Play Music</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line">
+          <div class="timeline-progress"></div>
+        </div>
+
+        <div class="timeline">
+          <!-- Sahelanthropus -->
+          <div class="era" data-era="sahelanthropus">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Sahelanthropus</div>
+              <div class="era-period">7 million years ago</div>
+              <div class="era-description">
+                The earliest known human ancestor, found in Chad, Africa.
+                Sahelanthropus showed the first signs of bipedalism while
+                retaining ape-like features.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Bipedalism</div>
+                <div class="feature-tag">Small brain</div>
+                <div class="feature-tag">Ape-like face</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Australopithecus -->
+          <div class="era" data-era="australopithecus">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Australopithecus</div>
+              <div class="era-period">4.2 - 1.9 million years ago</div>
+              <div class="era-description">
+                Famous for "Lucy," Australopithecus were fully bipedal hominids
+                who lived in Africa. They had long arms, short legs, and small
+                brains but walked upright.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Full bipedalism</div>
+                <div class="feature-tag">Tool use</div>
+                <div class="feature-tag">Social groups</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homo Habilis -->
+          <div class="era" data-era="homo-habilis">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Homo Habilis</div>
+              <div class="era-period">2.8 - 1.5 million years ago</div>
+              <div class="era-description">
+                "Handy man" - the first to make and use stone tools
+                systematically. They had larger brains than their predecessors
+                and showed increased intelligence.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Stone tools</div>
+                <div class="feature-tag">Larger brain</div>
+                <div class="feature-tag">Meat consumption</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homo Erectus -->
+          <div class="era" data-era="homo-erectus">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Homo Erectus</div>
+              <div class="era-period">2 million - 400,000 years ago</div>
+              <div class="era-description">
+                The first human ancestor to leave Africa and spread across Asia.
+                They controlled fire, made sophisticated tools, and lived in
+                organized groups.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Fire control</div>
+                <div class="feature-tag">Migration</div>
+                <div class="feature-tag">Advanced tools</div>
+                <div class="feature-tag">Cooking</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Neanderthals -->
+          <div class="era" data-era="neanderthals">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Neanderthals</div>
+              <div class="era-period">400,000 - 40,000 years ago</div>
+              <div class="era-description">
+                Our closest extinct relatives, adapted to cold climates in
+                Europe and western Asia. They buried their dead, used complex
+                tools, and may have had language.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Complex tools</div>
+                <div class="feature-tag">Burial rituals</div>
+                <div class="feature-tag">Art & symbols</div>
+                <div class="feature-tag">Cold adaptation</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homo Sapiens -->
+          <div class="era" data-era="homo-sapiens">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Homo Sapiens</div>
+              <div class="era-period">300,000 years ago - present</div>
+              <div class="era-description">
+                Modern humans with advanced cognitive abilities, complex
+                language, art, and culture. We developed agriculture,
+                civilization, and technology.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Complex language</div>
+                <div class="feature-tag">Art & culture</div>
+                <div class="feature-tag">Agriculture</div>
+                <div class="feature-tag">Technology</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modern Civilization -->
+          <div class="era" data-era="modern-human">
+            <div class="era-icon"></div>
+            <div class="era-content">
+              <div class="era-title">Modern Civilization</div>
+              <div class="era-period">10,000 years ago - present</div>
+              <div class="era-description">
+                The rise of cities, writing, science, and technology. From the
+                agricultural revolution to the digital age, humans have
+                transformed the planet.
+              </div>
+              <div class="era-features">
+                <div class="feature-tag">Writing systems</div>
+                <div class="feature-tag">Scientific method</div>
+                <div class="feature-tag">Global civilization</div>
+                <div class="feature-tag">Space exploration</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="eraModal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
